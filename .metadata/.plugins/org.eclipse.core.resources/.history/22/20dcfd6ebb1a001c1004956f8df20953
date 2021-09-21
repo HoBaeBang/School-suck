@@ -1,0 +1,25 @@
+package week03;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Number03 {
+
+	public static void main(String[] args) throws IOException {
+
+		FileReader fr1 = new FileReader("D:/webhw/output1.txt");
+		BufferedReader br1 = new BufferedReader(fr1);
+
+		FileReader fr2 = new FileReader("D:/webhw/output2.txt");
+		BufferedReader br2 = new BufferedReader(fr2);
+
+		FileWriter fr3 = new FileWriter("c:/wk/output3.txt");
+		BufferedWriter br3 = new BufferedWriter(fr3);
+
+	}
+
+}

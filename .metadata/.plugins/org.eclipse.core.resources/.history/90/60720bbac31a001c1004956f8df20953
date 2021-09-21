@@ -1,0 +1,62 @@
+package week03;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+
+public class Number04 {
+
+	public static void main(String[] args) throws IOException {
+
+		FileReader fr = new FileReader("D:/webhw/output3.txt");
+		BufferedReader br = new BufferedReader(fr);
+		
+		
+		float num[] = new float[100] ;
+		float number[] = new float[100];
+		
+		int cnt=0;	//배열 사이즈 카운팅
+		
+		
+//		while((c=br1.readLine())!=null) {
+//			br3.write(c+"\n");
+//		}
+		
+		String line;
+		while((line = br.readLine())!=null) {
+			StringTokenizer st = new StringTokenizer(line, " : ");
+				while(st.hasMoreTokens()) {
+					num[cnt] = Float.parseFloat(st.nextToken()); // : 앞의 토큰 파싱 & 배열에 집어 넣기
+					number[cnt++] = Float.parseFloat(st.nextToken()); // : 뒤의 토큰 파싱 & 배열에 집어 넣기
+				
+				}
+		}
+		
+		float num2[] = new float[cnt];
+		float number2[] = new float[cnt];
+		
+		for(int i=0;i<cnt;i++) {
+			num2[i] = num[i];
+			number2[i] = number[i];
+		}
+		Arrays.sort(num2);
+		Arrays.sort(number2);
+		
+		FileWriter fr1 = new FileWriter("D:/webhw/output4.txt");
+		BufferedWriter br1 = new BufferedWriter(fr1);
+
+		
+		for (int k = 0; k < number2.length; k++) {
+			String bb = Float.toString(number2[k]);
+			br1.write((k+1) +" : " +bb);
+			br1.newLine();
+		}
+		
+		br1.close();
+	}
+
+}
