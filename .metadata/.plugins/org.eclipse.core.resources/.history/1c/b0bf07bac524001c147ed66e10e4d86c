@@ -1,0 +1,60 @@
+package week05;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class Number08 {
+
+	public static void main(String[] args) throws Exception {
+		
+		Map<String, String> st = new HashMap<String, String> ();
+		
+		FileReader fr = new FileReader("Dic.dat");
+		BufferedReader br = new BufferedReader(fr);
+		
+//		String[] list = new String[100];	//리스트대신에 해쉬맵에 넣는다.
+		
+//		int cnt =0;		
+		
+		String line = null;		
+		StringTokenizer stk;
+		
+		while((line = br.readLine())!=null) {		//파일 읽어오는 반복문
+//			System.out.println(line); //로그
+			String value = line;	//문자열을 정수 값으로 변환
+			stk = new StringTokenizer(value,"\t");
+			
+			st.put(stk.nextToken(),stk.nextToken());
+//			System.out.println(list[cnt-2]);
+//			System.out.println(list[cnt-1]);
+//			System.out.println(list);  //로그
+			}
+
+		st.put("map", "지도");
+		st.put("java", "자바");
+		st.put("school", "학교");
+		
+		Scanner sc = new Scanner(System.in);
+		do {
+			System.out.print("영어단어 ? ");
+			String key = sc.next();
+			if(key.equals("quit")) {
+				System.out.println("done!");
+				break;
+			}
+			if(st.get(key) != null)
+				System.out.println("한글 : "+ st.get(key));
+			else 
+				System.out.println("Not exist!");
+						
+		}while(true);
+		sc.close();
+	}
+
+}

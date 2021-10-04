@@ -1,0 +1,40 @@
+package week05;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Number08 {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		
+		FileReader fr = new FileReader("Dic.dat");
+		BufferedReader br = new BufferedReader(fr);
+		
+		Map<String, String> st = new HashMap<String, String> ();
+
+		st.put("map", "지도");
+		st.put("java", "자바");
+		st.put("school", "학교");
+		
+		Scanner sc = new Scanner(System.in);
+		do {
+			System.out.print("영어단어 ? ");
+			String key = sc.next();
+			if(key.equals("quit")) {
+				System.out.println("done!");
+				break;
+			}
+			if(st.get(key) != null)
+				System.out.println("한글 : "+ st.get(key));
+			else 
+				System.out.println("Not exist!");
+						
+		}while(true);
+		sc.close();
+	}
+
+}
